@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data leitura:</strong>
+  <%= @read.data_leitura %>
+</p>
+
+<p>
+  <strong>Qtd lido:</strong>
+  <%= @read.qtd_lido %>
+</p>
+
+<%= link_to 'Edit', edit_read_path(@read) %> |
+<%= link_to 'Back', reads_path %>

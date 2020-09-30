@@ -1,0 +1,11 @@
+<h1>Leituras do Livro: <%= @book.nome_livro%> </h1>
+
+<tbody>
+    <% @read.each do |r| %>
+      <tr>
+        <td>Data da Leitura: <%= r.data_leitura %></td>
+        <td>Quantidade lida: <%= r.qtd_lido %></td>
+       <br>
+      </tr>
+    <% end %>
+  </tbody>

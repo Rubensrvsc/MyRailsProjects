@@ -1,0 +1,32 @@
+<%= form_with(model: read, local: true) do |form| %>
+  <% if read.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(read.errors.count, "error") %> prohibited this read from being saved:</h2>
+
+      <ul>
+        <% read.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :data_leitura %>
+    <%= form.date_select :data_leitura %>
+  </div>
+
+  <div class="field">
+    <%= form.label :qtd_lido %>
+    <%= form.number_field :qtd_lido %>
+  </div>
+
+  <div class="field">
+    <%= form.label :book_id %>
+    <%= form.collection_select(:book_id,Book.all,:id,:nome_livro,include_blank: true) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

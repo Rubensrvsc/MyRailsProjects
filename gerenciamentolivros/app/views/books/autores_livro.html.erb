@@ -1,0 +1,14 @@
+<h1>Nome dos Autores do Livro: <%= @book.nome_livro%> </h1>
+
+
+
+<div>
+
+<% @authors.each do |author| %>
+<tr>
+        <td><%= author.nome %></td>
+</tr>
+<% end %>
+</div>
+
+<br>
