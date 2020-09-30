@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :reads
   resources :books do
     member do
-      get 'autores_livro'
+      get 'informacao_livro'
       get 'leituras'
     end
   end

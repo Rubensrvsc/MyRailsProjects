@@ -16,7 +16,7 @@ class BooksController < ApplicationController
   def show
   end
 
-  def autores_livro
+  def informacao_livro
     
     @book = Book.find(params[:id])
     @authors = Author.where(book_id: @book.id)
