@@ -20,6 +20,7 @@ class BooksController < ApplicationController
     
     @book = Book.find(params[:id])
     @authors = Author.where(book_id: @book.id)
+    @total_leituras = Read.where(book_id: @book.id).pluck('SUM(qtd_lido)')
 
   end
 
