@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Repositório de uma simulação de um sistema de gerenciamento de livros
 
-Things you may want to cover:
+O Usuário pode:
 
-* Ruby version
+  + Cadastrar um livro
+  
+  + Cadastrar uma leitura
+  
+  + Cadastrar um autor
+  
+  + Relacionar um autor a um livro
+  
+Restrições:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  + Para fins didáticos um livro poder ter apenas um autor, mas um autor pode ter diversos livros
