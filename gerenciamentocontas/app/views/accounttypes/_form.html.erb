@@ -1,0 +1,22 @@
+<%= form_with(model: accounttype, local: true) do |form| %>
+  <% if accounttype.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(accounttype.errors.count, "error") %> prohibited this accounttype from being saved:</h2>
+
+      <ul>
+        <% accounttype.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tipo_conta %>
+    <%= form.text_field :tipo_conta %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
