@@ -26,6 +26,11 @@
     <%= form.text_field :comentario %>
   </div>
 
+  <div class="field">
+    <%= form.label :comentario %>
+    <%= form.collection_select(:accounttype_id,Accounttype.all,:id,:tipo_conta,include_blank: true) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
