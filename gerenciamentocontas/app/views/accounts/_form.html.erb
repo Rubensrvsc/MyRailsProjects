@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :qtd %>
+    <%= form.label :Quantidade %>
     <%= form.text_field :qtd %>
   </div>
 
   <div class="field">
-    <%= form.label :data_conta %>
+    <%= form.label :Data_conta %>
     <%= form.date_select :data_conta %>
   </div>
 
   <div class="field">
-    <%= form.label :comentario %>
+    <%= form.label :Comentario %>
     <%= form.text_field :comentario %>
   </div>
 
   <div class="field">
-    <%= form.label :comentario %>
+    <%= form.label :Conta %>
     <%= form.collection_select(:accounttype_id,Accounttype.all,:id,:tipo_conta,include_blank: true) %>
   </div>
 
