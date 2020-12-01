@@ -1,0 +1,470 @@
+  [1m[35m (151.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (157.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (279.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20201124122309)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201124122309"]]
+  [1m[35m (253.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-11-24 12:23:56.043136"], ["updated_at", "2020-11-24 12:23:56.043136"]]
+  [1m[35m (214.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAccounttypes (20201124123427)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "accounttypes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "tipo_conta" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201124123427"]]
+  [1m[35m (407.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAccounts (20201124123700)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "accounts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "qtd" float, "data_conta" date, "comentario" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201124123700"]]
+  [1m[35m (498.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserToAccount (20201124233455)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aaccounts" ("id" integer NOT NULL PRIMARY KEY, "qtd" float DEFAULT NULL, "data_conta" date DEFAULT NULL, "comentario" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (31.5ms)[0m  [1m[32mINSERT INTO "aaccounts" ("id","qtd","data_conta","comentario","created_at","updated_at")
+                     SELECT "id","qtd","data_conta","comentario","created_at","updated_at" FROM "accounts"[0m
+  [1m[35m (24.3ms)[0m  [1m[35mDROP TABLE "accounts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "accounts" ("id" integer NOT NULL PRIMARY KEY, "qtd" float DEFAULT NULL, "data_conta" date DEFAULT NULL, "comentario" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "accounts" ("id","qtd","data_conta","comentario","created_at","updated_at")
+                     SELECT "id","qtd","data_conta","comentario","created_at","updated_at" FROM "aaccounts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aaccounts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_accounts_on_user_id" ON "accounts" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aaccounts" ("id" integer NOT NULL PRIMARY KEY, "qtd" float DEFAULT NULL, "data_conta" date DEFAULT NULL, "comentario" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_aaccounts_on_user_id" ON "aaccounts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aaccounts" ("id","qtd","data_conta","comentario","created_at","updated_at","user_id")
+                     SELECT "id","qtd","data_conta","comentario","created_at","updated_at","user_id" FROM "accounts"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "accounts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "accounts" ("id" integer NOT NULL PRIMARY KEY, "qtd" float DEFAULT NULL, "data_conta" date DEFAULT NULL, "comentario" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, CONSTRAINT "fk_rails_b1e30bebc8"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_accounts_on_user_id" ON "accounts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "accounts" ("id","qtd","data_conta","comentario","created_at","updated_at","user_id")
+                     SELECT "id","qtd","data_conta","comentario","created_at","updated_at","user_id" FROM "aaccounts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aaccounts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201124233455"]]
+  [1m[35m (541.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddAccountTypeToAccount (20201124233610)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aaccounts" ("id" integer NOT NULL PRIMARY KEY, "qtd" float DEFAULT NULL, "data_conta" date DEFAULT NULL, "comentario" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_aaccounts_on_user_id" ON "aaccounts" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aaccounts" ("id","qtd","data_conta","comentario","created_at","updated_at","user_id")
+                     SELECT "id","qtd","data_conta","comentario","created_at","updated_at","user_id" FROM "accounts"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "accounts"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "accounts" ("id" integer NOT NULL PRIMARY KEY, "qtd" float DEFAULT NULL, "data_conta" date DEFAULT NULL, "comentario" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "accounttype_id" integer NOT NULL, CONSTRAINT "fk_rails_b1e30bebc8"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_accounts_on_user_id" ON "accounts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "accounts" ("id","qtd","data_conta","comentario","created_at","updated_at","user_id")
+                     SELECT "id","qtd","data_conta","comentario","created_at","updated_at","user_id" FROM "aaccounts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aaccounts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_accounts_on_accounttype_id" ON "accounts" ("accounttype_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aaccounts" ("id" integer NOT NULL PRIMARY KEY, "qtd" float DEFAULT NULL, "data_conta" date DEFAULT NULL, "comentario" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "accounttype_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_aaccounts_on_accounttype_id" ON "aaccounts" ("accounttype_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_aaccounts_on_user_id" ON "aaccounts" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aaccounts" ("id","qtd","data_conta","comentario","created_at","updated_at","user_id","accounttype_id")
+                     SELECT "id","qtd","data_conta","comentario","created_at","updated_at","user_id","accounttype_id" FROM "accounts"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "accounts"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "accounts" ("id" integer NOT NULL PRIMARY KEY, "qtd" float DEFAULT NULL, "data_conta" date DEFAULT NULL, "comentario" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "accounttype_id" integer NOT NULL, CONSTRAINT "fk_rails_b1e30bebc8"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_58aab7eece"
+FOREIGN KEY ("accounttype_id")
+  REFERENCES "accounttypes" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_accounts_on_user_id" ON "accounts" ("user_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX "index_accounts_on_accounttype_id" ON "accounts" ("accounttype_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "accounts" ("id","qtd","data_conta","comentario","created_at","updated_at","user_id","accounttype_id")
+                     SELECT "id","qtd","data_conta","comentario","created_at","updated_at","user_id","accounttype_id" FROM "aaccounts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aaccounts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201124233610"]]
+  [1m[35m (469.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-12-01 10:18:24 -0300
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (uninitialized constant AccountController
+Did you mean?  AccountsController
+               ActionController
+               AccounttypesController):
+  
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:92:in `rescue in controller_class_for'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.3.4) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/rails/info/routes?path=ac" for ::1 at 2020-12-01 10:18:43 -0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"ac"}
+Completed 200 OK in 13ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 3275)
+
+
+Started GET "/rails/info/routes?path=ac" for ::1 at 2020-12-01 10:18:43 -0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"ac"}
+Completed 200 OK in 7ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 1649)
+
+
+Started GET "/rails/info/routes?path=/" for ::1 at 2020-12-01 10:18:45 -0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"/"}
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 2088)
+
+
+Started GET "/rails/info/routes?path=/a" for ::1 at 2020-12-01 10:18:47 -0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"/a"}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1663)
+
+
+Started GET "/" for ::1 at 2020-12-01 10:19:50 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by AccountsController#index as HTML
+Completed 401 Unauthorized in 145ms (ActiveRecord: 0.0ms | Allocations: 1537)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-12-01 10:19:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 32.3ms | Allocations: 651)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 119.9ms | Allocations: 3606)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/rubens/Downloads/MyRailsProjects/gerenciamentocontas/public/packs
+[Webpacker] Hash: 15d1bb7b54cf6326b9ba
+Version: webpack 4.44.2
+Time: 5343ms
+Built at: 2020-12-01 10:20:00
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 9872ms (Views: 9830.7ms | ActiveRecord: 2.2ms | Allocations: 37248)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-12-01 10:20:10 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/shared/_error_messages.html.erb (Duration: 175.3ms | Allocations: 215)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 128)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 247.2ms | Allocations: 2052)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 294ms (Views: 289.7ms | ActiveRecord: 0.0ms | Allocations: 6869)
+
+
+Started POST "/users" for ::1 at 2020-12-01 10:20:22 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"cSuyhcXZ5M86ms+lEEnuMhrWnbbLdSUr7o5Yl2cxmbWp0qk+mAGSh3/35Vx6rcKvNs12JeQvW/jwzL7LD1ko0Q==", "user"=>{"email"=>"rubensspfc@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (21.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rubensspfc@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (86.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "rubensspfc@gmail.com"], ["encrypted_password", "$2a$12$LlXSRMMGBC.8nrLAo78NM.hxu1O72OQLVQaac78bxHVAfsjoLStzi"], ["created_at", "2020-12-01 13:20:22.656126"], ["updated_at", "2020-12-01 13:20:22.656126"]]
+  [1m[35m (460.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1219ms (ActiveRecord: 569.0ms | Allocations: 13170)
+
+
+Started GET "/" for ::1 at 2020-12-01 10:20:23 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:16
+  Rendered accounts/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1447)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 70ms (Views: 13.2ms | ActiveRecord: 1.1ms | Allocations: 9249)
+
+
+Started GET "/accounts/new" for ::1 at 2020-12-01 10:20:34 -0300
+Processing by AccountsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/new.html.erb within layouts/application
+  [1m[36mAccounttype Load (0.4ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes"[0m
+  ↳ app/views/accounts/_form.html.erb:31
+  Rendered accounts/_form.html.erb (Duration: 114.7ms | Allocations: 4981)
+  Rendered accounts/new.html.erb within layouts/application (Duration: 116.7ms | Allocations: 5348)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 144ms (Views: 126.8ms | ActiveRecord: 2.1ms | Allocations: 16325)
+
+
+Started GET "/accounts/new" for ::1 at 2020-12-01 10:21:36 -0300
+Processing by AccountsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/new.html.erb within layouts/application
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes"[0m
+  ↳ app/views/accounts/_form.html.erb:31
+  Rendered accounts/_form.html.erb (Duration: 7.6ms | Allocations: 3399)
+  Rendered accounts/new.html.erb within layouts/application (Duration: 11.3ms | Allocations: 3765)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 21.4ms | ActiveRecord: 0.5ms | Allocations: 10099)
+
+
+Started GET "/accounts" for ::1 at 2020-12-01 10:21:38 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:16
+  Rendered accounts/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 939)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 25.4ms | ActiveRecord: 0.8ms | Allocations: 6363)
+
+
+Started GET "/accounttypes" for ::1 at 2020-12-01 10:32:29 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by AccounttypesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/index.html.erb within layouts/application
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes"[0m
+  ↳ app/views/accounttypes/index.html.erb:14
+  Rendered accounttypes/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 928)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 7.7ms | ActiveRecord: 0.4ms | Allocations: 6920)
+
+
+Started GET "/accounttypes/new" for ::1 at 2020-12-01 10:32:32 -0300
+Processing by AccounttypesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/new.html.erb within layouts/application
+  Rendered accounttypes/_form.html.erb (Duration: 2.0ms | Allocations: 966)
+  Rendered accounttypes/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1327)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 8.9ms | ActiveRecord: 0.5ms | Allocations: 9440)
+
+
+Started POST "/accounttypes" for ::1 at 2020-12-01 10:32:37 -0300
+Processing by AccounttypesController#create as HTML
+  Parameters: {"authenticity_token"=>"1PqqCkVBAw2PDNeMFGDvrqGzdxtD3fkcw8iNNzgeMRvrMnVsfdmfx3zdNnE7XVGccFT5jBINS4ISLyLHwUpagQ==", "accounttype"=>{"tipo_conta"=>"Luz"}, "commit"=>"Create Accounttype"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/accounttypes_controller.rb:31:in `block in create'
+  [1m[36mAccounttype Create (0.7ms)[0m  [1m[32mINSERT INTO "accounttypes" ("tipo_conta", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tipo_conta", "Luz"], ["created_at", "2020-12-01 13:32:37.291964"], ["updated_at", "2020-12-01 13:32:37.291964"]]
+  ↳ app/controllers/accounttypes_controller.rb:31:in `block in create'
+  [1m[35m (609.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/accounttypes_controller.rb:31:in `block in create'
+Redirected to http://localhost:3000/accounttypes/1
+Completed 302 Found in 643ms (ActiveRecord: 610.3ms | Allocations: 7111)
+
+
+Started GET "/accounttypes/1" for ::1 at 2020-12-01 10:32:37 -0300
+Processing by AccounttypesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAccounttype Load (0.5ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounttypes_controller.rb:68:in `set_accounttype'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/show.html.erb within layouts/application
+  Rendered accounttypes/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 248)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 12.4ms | ActiveRecord: 0.8ms | Allocations: 6364)
+
+
+Started GET "/accounttypes" for ::1 at 2020-12-01 10:32:39 -0300
+Processing by AccounttypesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/index.html.erb within layouts/application
+  [1m[36mAccounttype Load (0.4ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes"[0m
+  ↳ app/views/accounttypes/index.html.erb:14
+  Rendered accounttypes/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 19.2ms | ActiveRecord: 0.8ms | Allocations: 6064)
+
+
+Started GET "/accounttypes/new" for ::1 at 2020-12-01 10:32:40 -0300
+Processing by AccounttypesController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/new.html.erb within layouts/application
+  Rendered accounttypes/_form.html.erb (Duration: 4.4ms | Allocations: 568)
+  Rendered accounttypes/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 668)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 17.3ms | ActiveRecord: 0.5ms | Allocations: 5946)
+
+
+Started POST "/accounttypes" for ::1 at 2020-12-01 10:32:46 -0300
+Processing by AccounttypesController#create as HTML
+  Parameters: {"authenticity_token"=>"7iXnek/2opko3/ZiKzH7PcSvufVFWcKS5nonk2v5xMzR7Tgcd24+U9sOF58EDEUPFUg3YhSJcAw3nYhjkq2vVg==", "accounttype"=>{"tipo_conta"=>"Energia"}, "commit"=>"Create Accounttype"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/accounttypes_controller.rb:31:in `block in create'
+  [1m[36mAccounttype Create (2.9ms)[0m  [1m[32mINSERT INTO "accounttypes" ("tipo_conta", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tipo_conta", "Energia"], ["created_at", "2020-12-01 13:32:46.204395"], ["updated_at", "2020-12-01 13:32:46.204395"]]
+  ↳ app/controllers/accounttypes_controller.rb:31:in `block in create'
+  [1m[35m (515.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/accounttypes_controller.rb:31:in `block in create'
+Redirected to http://localhost:3000/accounttypes/2
+Completed 302 Found in 556ms (ActiveRecord: 520.7ms | Allocations: 6984)
+
+
+Started GET "/accounttypes/2" for ::1 at 2020-12-01 10:32:46 -0300
+Processing by AccounttypesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAccounttype Load (0.3ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/accounttypes_controller.rb:68:in `set_accounttype'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/show.html.erb within layouts/application
+  Rendered accounttypes/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 83)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 22.0ms | ActiveRecord: 0.8ms | Allocations: 5912)
+
+
+Started GET "/accounttypes" for ::1 at 2020-12-01 10:32:48 -0300
+Processing by AccounttypesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/index.html.erb within layouts/application
+  [1m[36mAccounttype Load (0.4ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes"[0m
+  ↳ app/views/accounttypes/index.html.erb:14
+  Rendered accounttypes/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 910)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 25.2ms | ActiveRecord: 0.9ms | Allocations: 6179)
+
+
+Started GET "/accounttypes/new" for ::1 at 2020-12-01 10:32:55 -0300
+Processing by AccounttypesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/new.html.erb within layouts/application
+  Rendered accounttypes/_form.html.erb (Duration: 1.6ms | Allocations: 566)
+  Rendered accounttypes/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 666)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 8.7ms | ActiveRecord: 0.2ms | Allocations: 5944)
+
+
+Started POST "/accounttypes" for ::1 at 2020-12-01 10:33:18 -0300
+Processing by AccounttypesController#create as HTML
+  Parameters: {"authenticity_token"=>"wQNi561I8S8xw6G854xNToiN+dCYRBV9cU/8uVch9h3+y72BldBt5cISQEHIsfN8WWp3R8mUp+OgqFNJrnWdhw==", "accounttype"=>{"tipo_conta"=>"Combustível do Carro"}, "commit"=>"Create Accounttype"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/accounttypes_controller.rb:31:in `block in create'
+  [1m[36mAccounttype Create (1.0ms)[0m  [1m[32mINSERT INTO "accounttypes" ("tipo_conta", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tipo_conta", "Combustível do Carro"], ["created_at", "2020-12-01 13:33:18.940639"], ["updated_at", "2020-12-01 13:33:18.940639"]]
+  ↳ app/controllers/accounttypes_controller.rb:31:in `block in create'
+  [1m[35m (530.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/accounttypes_controller.rb:31:in `block in create'
+Redirected to http://localhost:3000/accounttypes/3
+Completed 302 Found in 567ms (ActiveRecord: 532.6ms | Allocations: 7298)
+
+
+Started GET "/accounttypes/3" for ::1 at 2020-12-01 10:33:19 -0300
+Processing by AccounttypesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAccounttype Load (0.5ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/accounttypes_controller.rb:68:in `set_accounttype'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/show.html.erb within layouts/application
+  Rendered accounttypes/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 83)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 10.2ms | ActiveRecord: 0.9ms | Allocations: 5913)
+
+
+Started GET "/accounttypes" for ::1 at 2020-12-01 10:33:21 -0300
+Processing by AccounttypesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/index.html.erb within layouts/application
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes"[0m
+  ↳ app/views/accounttypes/index.html.erb:14
+  Rendered accounttypes/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1036)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 12.0ms | ActiveRecord: 0.7ms | Allocations: 6308)
+
+
