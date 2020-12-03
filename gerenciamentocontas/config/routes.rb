@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :expenses
   resources :accounts
   #get 'account/index'
   root 'accounts#index'
