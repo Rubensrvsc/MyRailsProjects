@@ -1399,3 +1399,170 @@ Processing by AccountsController#index as HTML
 Completed 200 OK in 16ms (Views: 12.1ms | ActiveRecord: 0.3ms | Allocations: 6231)
 
 
+Started GET "/" for ::1 at 2020-12-02 22:04:31 -0300
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AccountsController#index as HTML
+Completed 401 Unauthorized in 39ms (ActiveRecord: 0.0ms | Allocations: 1597)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-12-02 22:04:32 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 31.2ms | Allocations: 655)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 143.3ms | Allocations: 4098)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 513ms (Views: 464.1ms | ActiveRecord: 2.6ms | Allocations: 20597)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-12-02 22:04:39 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"zDt+caVX2psfYfGwgYUn2ZK+8A38s5/LSHT7Un4m2LiE//xqUjLIJs9nhO+JRbGw+84EU7LRKHJYWbe1PZ7tcA==", "user"=>{"email"=>"rubensspfc@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "rubensspfc@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 453ms (ActiveRecord: 0.3ms | Allocations: 6648)
+
+
+Started GET "/" for ::1 at 2020-12-02 22:04:40 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:16
+  Rendered accounts/index.html.erb within layouts/application (Duration: 15.1ms | Allocations: 9751)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.1ms | Allocations: 13688)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<Account:0x00005632eeb50a50>
+Did you mean?  users):
+    18:         <td><%= account.qtd %></td>
+    19:         <td><%= account.data_conta %></td>
+    20:         <td><%= account.comentario %></td>
+    21:         <td><%= account.user %></td>
+    22:         <td><%= link_to 'Show', account %></td>
+    23:         <td><%= link_to 'Edit', edit_account_path(account) %></td>
+    24:         <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/accounts/index.html.erb:21
+app/views/accounts/index.html.erb:16
+Started GET "/" for ::1 at 2020-12-02 22:04:52 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:16
+  Rendered accounts/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1354)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.2ms | ActiveRecord: 0.3ms | Allocations: 7795)
+
+
+Started GET "/" for ::1 at 2020-12-02 22:05:02 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:16
+  Rendered accounts/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 2551)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms | Allocations: 5353)
+
+
+  
+ActionView::Template::Error (undefined method `email' for 1:Integer):
+    18:         <td><%= account.qtd %></td>
+    19:         <td><%= account.data_conta %></td>
+    20:         <td><%= account.comentario %></td>
+    21:         <td><%= account.user_id.email %></td>
+    22:         <td><%= link_to 'Show', account %></td>
+    23:         <td><%= link_to 'Edit', edit_account_path(account) %></td>
+    24:         <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/accounts/index.html.erb:21
+app/views/accounts/index.html.erb:16
+Started GET "/" for ::1 at 2020-12-02 22:05:12 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:16
+  Rendered accounts/index.html.erb within layouts/application (Duration: 10.3ms | Allocations: 3632)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.3ms | Allocations: 6454)
+
+
+  
+ActionView::Template::Error (undefined method `user' for #<Account:0x00007f9bf8103ce0>
+Did you mean?  users):
+    18:         <td><%= account.qtd %></td>
+    19:         <td><%= account.data_conta %></td>
+    20:         <td><%= account.comentario %></td>
+    21:         <td><%= account.user.email %></td>
+    22:         <td><%= link_to 'Show', account %></td>
+    23:         <td><%= link_to 'Edit', edit_account_path(account) %></td>
+    24:         <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/accounts/index.html.erb:21
+app/views/accounts/index.html.erb:16
+Started GET "/" for ::1 at 2020-12-02 22:07:48 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:9:in `index'
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:16
+  Rendered accounts/index.html.erb within layouts/application (Duration: 10.7ms | Allocations: 7434)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 19.7ms | ActiveRecord: 2.6ms | Allocations: 22338)
+
+
+Started GET "/" for ::1 at 2020-12-02 22:08:58 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:9:in `index'
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:16
+  Rendered accounts/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2207)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms | Allocations: 5578)
+
+
+  
+ActionView::Template::Error (undefined method `user' for nil:NilClass):
+    18:         <td><%= account.qtd %></td>
+    19:         <td><%= account.data_conta %></td>
+    20:         <td><%= account.comentario %></td>
+    21:         <td><%= @account.user.current_user %></td>
+    22:         <td><%= link_to 'Show', account %></td>
+    23:         <td><%= link_to 'Edit', edit_account_path(account) %></td>
+    24:         <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/accounts/index.html.erb:21
+app/views/accounts/index.html.erb:16
+Started GET "/" for ::1 at 2020-12-02 22:09:17 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:9:in `index'
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.1ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:16
+  Rendered accounts/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1291)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 11.2ms | ActiveRecord: 0.4ms | Allocations: 8178)
+
+
+Started GET "/" for ::1 at 2020-12-02 22:09:26 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:9:in `index'
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts"[0m
+  ↳ app/views/accounts/index.html.erb:16
+  Rendered accounts/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 16.5ms | ActiveRecord: 1.0ms | Allocations: 8168)
+
+

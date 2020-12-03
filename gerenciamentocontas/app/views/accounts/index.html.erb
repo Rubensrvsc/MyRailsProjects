@@ -8,6 +8,7 @@
       <th>Qtd</th>
       <th>Data conta</th>
       <th>Comentario</th>
+      <th>Usuário</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= account.qtd %></td>
         <td><%= account.data_conta %></td>
         <td><%= account.comentario %></td>
+        <td><%= current_user.email %></td>
         <td><%= link_to 'Show', account %></td>
         <td><%= link_to 'Edit', edit_account_path(account) %></td>
         <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
