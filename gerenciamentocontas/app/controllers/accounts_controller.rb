@@ -5,7 +5,7 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
+    @accounts = Account.where(user_id: current_user.id)
   end
 
   # GET /accounts/1
@@ -71,6 +71,6 @@ class AccountsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def account_params
-      params.require(:account).permit(:qtd, :data_conta, :comentario,:user_id,:accounttype_id)
+      params.require(:account).permit(:qtd, :data_conta, :comentario,:accounttype_id)
     end
 end
