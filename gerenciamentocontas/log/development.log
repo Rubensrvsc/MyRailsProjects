@@ -2671,3 +2671,265 @@ Processing by ExpensesController#index as HTML
 Completed 200 OK in 38ms (Views: 20.5ms | ActiveRecord: 2.3ms | Allocations: 24640)
 
 
+Started GET "/expenses" for ::1 at 2020-12-06 19:59:18 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.7ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  [1m[36mExpensetype Load (0.1ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:22
+  Rendered expenses/index.html.erb within layouts/application (Duration: 35.0ms | Allocations: 11071)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 155ms (Views: 40.3ms | ActiveRecord: 4.7ms | Allocations: 25329)
+
+
+Started GET "/expenses" for ::1 at 2020-12-06 19:59:32 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  Rendered expenses/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1123)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 12.5ms | ActiveRecord: 0.4ms | Allocations: 7636)
+
+
+Started GET "/expenses" for ::1 at 2020-12-06 19:59:36 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  [1m[36mExpensetype Load (1.6ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."expense_id" = ? LIMIT ?[0m  [["expense_id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:22
+  Rendered expenses/index.html.erb within layouts/application (Duration: 200.9ms | Allocations: 6943)
+Completed 500 Internal Server Error in 214ms (ActiveRecord: 2.1ms | Allocations: 10773)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: expensetypes.expense_id):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= expense.expensetype %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 19:59:44 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  [1m[36mExpensetype Load (1.6ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."expense_id" = ? LIMIT ?[0m  [["expense_id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:22
+  Rendered expenses/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 3188)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 2.1ms | Allocations: 6033)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: expensetypes.expense_id):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= expense.expensetype %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 20:00:04 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+  ↳ app/views/expenses/index.html.erb:17
+  [1m[36mExpensetype Load (1.1ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."expense_id" = ? LIMIT ?[0m  [["expense_id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:22
+  Rendered expenses/index.html.erb within layouts/application (Duration: 16.5ms | Allocations: 10797)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 3.2ms | Allocations: 20849)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: expensetypes.expense_id):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= expense.expensetype %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 20:00:07 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+  ↳ app/views/expenses/index.html.erb:17
+  [1m[36mExpensetype Load (0.7ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."expense_id" = ? LIMIT ?[0m  [["expense_id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:22
+  Rendered expenses/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2879)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.1ms | Allocations: 4819)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: expensetypes.expense_id):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= expense.expensetype %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 20:00:11 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.7ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  [1m[36mExpensetype Load (1.2ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."expense_id" = ? LIMIT ?[0m  [["expense_id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:22
+  Rendered expenses/index.html.erb within layouts/application (Duration: 17.0ms | Allocations: 10360)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 3.6ms | Allocations: 20956)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: expensetypes.expense_id):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= expense.expensetype %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 20:01:24 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  [1m[36mExpensetype Load (0.8ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."expense_id" = ? LIMIT ?[0m  [["expense_id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:22
+  Rendered expenses/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2897)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.1ms | Allocations: 4893)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: expensetypes.expense_id):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= expense.expensetype %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 20:01:53 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  [1m[36mExpensetype Load (1.1ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."expense_id" = ? LIMIT ?[0m  [["expense_id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:22
+  Rendered expenses/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3188)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.8ms | Allocations: 6033)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: expensetypes.expense_id):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= expense.expensetype.tipo_receita %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 20:02:08 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  [1m[36mExpensetype Load (2.1ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."expense_id" = ? LIMIT ?[0m  [["expense_id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:22
+  Rendered expenses/index.html.erb within layouts/application (Duration: 46.2ms | Allocations: 14695)
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 5.9ms | Allocations: 28728)
+
+
+  
+ActionView::Template::Error (SQLite3::SQLException: no such column: expensetypes.expense_id):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= expense.expensetype.tipo_receita %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[36mExpense Load (0.7ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RemoveQtdFromExpense (20201206230842)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aexpenses" ("id" integer NOT NULL PRIMARY KEY, "quantidade" float DEFAULT NULL, "data" date DEFAULT NULL, "comentario" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "expensetype_id" integer NOT NULL, "qtd" float DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_aexpenses_on_expensetype_id" ON "aexpenses" ("expensetype_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_aexpenses_on_user_id" ON "aexpenses" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "aexpenses" ("id","quantidade","data","comentario","created_at","updated_at","user_id","expensetype_id","qtd")
+                     SELECT "id","quantidade","data","comentario","created_at","updated_at","user_id","expensetype_id","qtd" FROM "expenses"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "expenses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "expenses" ("id" integer NOT NULL PRIMARY KEY, "quantidade" float DEFAULT NULL, "data" date DEFAULT NULL, "comentario" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, "expensetype_id" integer NOT NULL, CONSTRAINT "fk_rails_c3ee69df61"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_7dd08ddaf5"
+FOREIGN KEY ("expensetype_id")
+  REFERENCES "expensetypes" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_expenses_on_user_id" ON "expenses" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_expenses_on_expensetype_id" ON "expenses" ("expensetype_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "expenses" ("id","quantidade","data","comentario","created_at","updated_at","user_id","expensetype_id")
+                     SELECT "id","quantidade","data","comentario","created_at","updated_at","user_id","expensetype_id" FROM "aexpenses"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aexpenses"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201206230842"]]
+  [1m[35m (368.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
