@@ -2518,3 +2518,156 @@ Processing by ExpensesController#index as HTML
 Completed 200 OK in 44ms (Views: 25.5ms | ActiveRecord: 1.9ms | Allocations: 21956)
 
 
+Started GET "/expenses" for ::1 at 2020-12-06 19:52:00 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  Rendered expenses/index.html.erb within layouts/application (Duration: 27.7ms | Allocations: 3691)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.8ms | Allocations: 6530)
+
+
+  
+ActionView::Template::Error (undefined method `expensetype' for #<Expense:0x00007f31c00693b8>
+Did you mean?  expensetype_id):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= expense.expensetype.tipo_receita %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 19:52:08 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  Rendered expenses/index.html.erb within layouts/application (Duration: 14.9ms | Allocations: 3685)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.5ms | Allocations: 6523)
+
+
+  
+ActionView::Template::Error (undefined method `expensetypes' for #<Expense:0x00005623342231b8>
+Did you mean?  expensetype_id):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= expense.expensetypes.tipo_receita %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 19:53:33 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  Rendered expenses/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1119)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 13.7ms | ActiveRecord: 0.5ms | Allocations: 7629)
+
+
+Started GET "/expenses" for ::1 at 2020-12-06 19:54:52 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  Rendered expenses/index.html.erb within layouts/application (Duration: 16.7ms | Allocations: 3654)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.4ms | Allocations: 6486)
+
+
+  
+ActionView::Template::Error (undefined method `expensetype' for #<Expense:0x00007f31b4848a90>
+Did you mean?  expensetype_id):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= expense.expensetype %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 19:56:03 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  Rendered expenses/index.html.erb within layouts/application (Duration: 24.2ms | Allocations: 9747)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.5ms | Allocations: 12584)
+
+
+  
+ActionView::Template::Error (undefined method `expensetype' for #<Expense:0x00007f319812bd00>
+Did you mean?  expensetype_id):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= Expensetype.find(expense.expensetype) %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 19:56:09 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  Rendered expenses/index.html.erb within layouts/application (Duration: 27.5ms | Allocations: 3362)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.6ms | Allocations: 5801)
+
+
+  
+ActionView::Template::Error (undefined method `expensetype' for #<Expense:0x00007f319c05faf8>
+Did you mean?  expensetype_id):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= Expensetype.find(expense.expensetype_id) %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 19:56:24 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.1ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  [1m[36mExpensetype Load (0.1ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:22
+  Rendered expenses/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 4782)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 17.9ms | ActiveRecord: 1.1ms | Allocations: 11291)
+
+
+Started GET "/expenses" for ::1 at 2020-12-06 19:56:56 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  [1m[36mExpensetype Load (0.1ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:22
+  Rendered expenses/index.html.erb within layouts/application (Duration: 16.2ms | Allocations: 10803)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 38ms (Views: 20.5ms | ActiveRecord: 2.3ms | Allocations: 24640)
+
+
