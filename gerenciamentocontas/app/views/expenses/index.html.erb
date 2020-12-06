@@ -19,7 +19,7 @@
         <td><%= expense.quantidade %></td>
         <td><%= expense.data %></td>
         <td><%= expense.comentario %></td>
-        <td><%= expense.expensetype.tipo_receita %></td>
+        <td><%= Expensetype.find(expense.expensetype_id) %></td>
         <td><%= link_to 'Show', expense %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>

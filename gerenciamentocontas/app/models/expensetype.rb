@@ -1,5 +1,5 @@
 class Expensetype < ApplicationRecord
-    belongs_to :expense
+    has_one :expense
 
     def to_s
         self.tipo_receita

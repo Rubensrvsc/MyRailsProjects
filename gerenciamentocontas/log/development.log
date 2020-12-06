@@ -2933,3 +2933,88 @@ FOREIGN KEY ("expensetype_id")
   [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/expenses" for ::1 at 2020-12-06 20:14:53 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  Rendered expenses/index.html.erb within layouts/application (Duration: 183.2ms | Allocations: 89343)
+Completed 500 Internal Server Error in 202ms (ActiveRecord: 0.5ms | Allocations: 99686)
+
+
+  
+ActionView::Template::Error (undefined method `Expensetype' for #<#<Class:0x00007fcd00d19938>:0x00007fcd00d0fe88>
+Did you mean?  expensetype_url):
+    19:         <td><%= expense.quantidade %></td>
+    20:         <td><%= expense.data %></td>
+    21:         <td><%= expense.comentario %></td>
+    22:         <td><%= Expensetype(expense.expensetype_id) %></td>
+    23:         <td><%= link_to 'Show', expense %></td>
+    24:         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+    25:         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/expenses/index.html.erb:22
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 20:15:11 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  [1m[36mExpensetype Load (0.2ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:22
+  Rendered expenses/index.html.erb within layouts/application (Duration: 16.0ms | Allocations: 5202)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 36.7ms | ActiveRecord: 1.2ms | Allocations: 15292)
+
+
+Started GET "/accounts" for ::1 at 2020-12-06 20:15:16 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/accounts/index.html.erb:18
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  Rendered accounts/index.html.erb within layouts/application (Duration: 32.6ms | Allocations: 14551)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 41.9ms | ActiveRecord: 3.2ms | Allocations: 22205)
+
+
+Started GET "/accounts" for ::1 at 2020-12-06 20:15:43 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/accounts/index.html.erb:18
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mAccounttype Load (0.1ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  Rendered accounts/index.html.erb within layouts/application (Duration: 30.2ms | Allocations: 14115)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 37.0ms | ActiveRecord: 3.3ms | Allocations: 28260)
+
+
