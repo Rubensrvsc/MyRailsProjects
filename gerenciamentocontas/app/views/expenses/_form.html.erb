@@ -31,6 +31,11 @@
     <%= form.text_field :comentario %>
   </div>
 
+  <div class="field">
+    <%= form.label :Conta %>
+    <%= form.collection_select(:expensetype_id,Expensetype.all,:id,:tipo_receita,include_blank: false) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

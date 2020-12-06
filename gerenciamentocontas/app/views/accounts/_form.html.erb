@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :Conta %>
-    <%= form.collection_select(:accounttype_id,Accounttype.all,:id,:tipo_conta,include_blank: true) %>
+    <%= form.collection_select(:accounttype_id,Accounttype.all,:id,:tipo_conta,include_blank: false) %>
   </div>
 
   <div class="actions">
