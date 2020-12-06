@@ -2058,3 +2058,463 @@ FOREIGN KEY ("user_id")
   [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-12-06 19:46:00 -0300
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AccountsController#index as HTML
+Completed 401 Unauthorized in 132ms (ActiveRecord: 0.0ms | Allocations: 1582)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-12-06 19:46:01 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 33.8ms | Allocations: 655)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 145.3ms | Allocations: 4098)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1194ms (Views: 971.0ms | ActiveRecord: 2.7ms | Allocations: 39098)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-12-06 19:46:09 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"SxOUX1CSzmb5RcUfh7g6rZ5FgFMSOXb5c4otaSauMAgvIybnb5qic81eE2FtAyvFLy4SC2Mt6ACPyeAT8N8NVQ==", "user"=>{"email"=>"rubensspfc@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "rubensspfc@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 458ms (ActiveRecord: 0.8ms | Allocations: 6635)
+
+
+Started GET "/" for ::1 at 2020-12-06 19:46:10 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/accounts/index.html.erb:17
+  Rendered accounts/index.html.erb within layouts/application (Duration: 19.0ms | Allocations: 7138)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 31.4ms | ActiveRecord: 1.7ms | Allocations: 15052)
+
+
+Started GET "/accounts/new" for ::1 at 2020-12-06 19:46:23 -0300
+Processing by AccountsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/new.html.erb within layouts/application
+  [1m[36mAccounttype Load (0.6ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes"[0m
+  ↳ app/views/accounts/_form.html.erb:31
+  Rendered accounts/_form.html.erb (Duration: 140.8ms | Allocations: 14315)
+  Rendered accounts/new.html.erb within layouts/application (Duration: 142.5ms | Allocations: 14686)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 164ms (Views: 156.7ms | ActiveRecord: 2.8ms | Allocations: 20166)
+
+
+Started POST "/accounts" for ::1 at 2020-12-06 19:46:50 -0300
+Processing by AccountsController#create as HTML
+  Parameters: {"authenticity_token"=>"eB0TvCElG+dUqeRnCm7di3vOW4EE03Q9LHJHwhINFhtAoWUjUfDroIL1W7OKBwRAqDsm5TRaYu3XFaQnaWg+kA==", "account"=>{"qtd"=>"19", "data_conta(1i)"=>"2020", "data_conta(2i)"=>"12", "data_conta(3i)"=>"5", "comentario"=>"", "accounttype_id"=>"4"}, "commit"=>"Create Account"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/accounts_controller.rb:32:in `block in create'
+  [1m[36mAccount Create (7.6ms)[0m  [1m[32mINSERT INTO "accounts" ("qtd", "data_conta", "comentario", "created_at", "updated_at", "user_id", "accounttype_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["qtd", 19.0], ["data_conta", "2020-12-05"], ["comentario", ""], ["created_at", "2020-12-06 22:46:50.250327"], ["updated_at", "2020-12-06 22:46:50.250327"], ["user_id", 1], ["accounttype_id", 4]]
+  ↳ app/controllers/accounts_controller.rb:32:in `block in create'
+  [1m[35m (806.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/accounts_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/accounts/4
+Completed 302 Found in 827ms (ActiveRecord: 813.9ms | Allocations: 7778)
+
+
+Started GET "/accounts/4" for ::1 at 2020-12-06 19:46:51 -0300
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:69:in `set_account'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/show.html.erb within layouts/application
+  Rendered accounts/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 305)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 8.6ms | ActiveRecord: 0.4ms | Allocations: 6569)
+
+
+Started GET "/accounts" for ::1 at 2020-12-06 19:46:52 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/accounts/index.html.erb:17
+  Rendered accounts/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 1278)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 28.2ms | ActiveRecord: 0.9ms | Allocations: 6746)
+
+
+Started GET "/accounts/new" for ::1 at 2020-12-06 19:46:54 -0300
+Processing by AccountsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/new.html.erb within layouts/application
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes"[0m
+  ↳ app/views/accounts/_form.html.erb:31
+  Rendered accounts/_form.html.erb (Duration: 13.8ms | Allocations: 2998)
+  Rendered accounts/new.html.erb within layouts/application (Duration: 14.5ms | Allocations: 3098)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 23.9ms | ActiveRecord: 0.5ms | Allocations: 8521)
+
+
+Started POST "/accounts" for ::1 at 2020-12-06 19:47:08 -0300
+Processing by AccountsController#create as HTML
+  Parameters: {"authenticity_token"=>"AhTAKbGnDSjM/jIPLTtEdhI5uAxzws0giBVVsPkK+Pk6qLa2wXL9bxqijdutUp29wczFaENL2/BzcrZVgm/Qcg==", "account"=>{"qtd"=>"29", "data_conta(1i)"=>"2020", "data_conta(2i)"=>"12", "data_conta(3i)"=>"5", "comentario"=>"subway", "accounttype_id"=>"4"}, "commit"=>"Create Account"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/accounts_controller.rb:32:in `block in create'
+  [1m[36mAccount Create (0.6ms)[0m  [1m[32mINSERT INTO "accounts" ("qtd", "data_conta", "comentario", "created_at", "updated_at", "user_id", "accounttype_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["qtd", 29.0], ["data_conta", "2020-12-05"], ["comentario", "subway"], ["created_at", "2020-12-06 22:47:08.502357"], ["updated_at", "2020-12-06 22:47:08.502357"], ["user_id", 1], ["accounttype_id", 4]]
+  ↳ app/controllers/accounts_controller.rb:32:in `block in create'
+  [1m[35m (528.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/accounts_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/accounts/5
+Completed 302 Found in 553ms (ActiveRecord: 529.8ms | Allocations: 7251)
+
+
+Started GET "/accounts/5" for ::1 at 2020-12-06 19:47:09 -0300
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:69:in `set_account'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/show.html.erb within layouts/application
+  Rendered accounts/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 97)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 21.5ms | ActiveRecord: 0.7ms | Allocations: 6092)
+
+
+Started GET "/accounts" for ::1 at 2020-12-06 19:47:10 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.9ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/accounts/index.html.erb:17
+  Rendered accounts/index.html.erb within layouts/application (Duration: 13.7ms | Allocations: 1416)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 34.2ms | ActiveRecord: 1.2ms | Allocations: 6887)
+
+
+Started GET "/accounts/4/edit" for ::1 at 2020-12-06 19:47:13 -0300
+Processing by AccountsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:69:in `set_account'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/edit.html.erb within layouts/application
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes"[0m
+  ↳ app/views/accounts/_form.html.erb:31
+  Rendered accounts/_form.html.erb (Duration: 6.9ms | Allocations: 3053)
+  Rendered accounts/edit.html.erb within layouts/application (Duration: 8.0ms | Allocations: 3327)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 14.4ms | ActiveRecord: 0.6ms | Allocations: 9430)
+
+
+Started PATCH "/accounts/4" for ::1 at 2020-12-06 19:47:19 -0300
+Processing by AccountsController#update as HTML
+  Parameters: {"authenticity_token"=>"9Y4WGUjFk5aNR4VbVwjZCsgDGsXaS4GiRfX/xM+7U+rrPbYjCj2zbYUi2xplYOxRB2AtLT3m34vnSUYVx3Pz6A==", "account"=>{"qtd"=>"19.0", "data_conta(1i)"=>"2020", "data_conta(2i)"=>"12", "data_conta(3i)"=>"5", "comentario"=>"hamburguer", "accounttype_id"=>"4"}, "commit"=>"Update Account", "id"=>"4"}
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:69:in `set_account'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/accounts_controller.rb:46:in `block in update'
+  [1m[36mAccount Update (0.9ms)[0m  [1m[33mUPDATE "accounts" SET "comentario" = ?, "updated_at" = ? WHERE "accounts"."id" = ?[0m  [["comentario", "hamburguer"], ["updated_at", "2020-12-06 22:47:19.107647"], ["id", 4]]
+  ↳ app/controllers/accounts_controller.rb:46:in `block in update'
+  [1m[35m (761.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/accounts_controller.rb:46:in `block in update'
+Redirected to http://localhost:3000/accounts/4
+Completed 302 Found in 794ms (ActiveRecord: 763.7ms | Allocations: 7861)
+
+
+Started GET "/accounts/4" for ::1 at 2020-12-06 19:47:19 -0300
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:69:in `set_account'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/show.html.erb within layouts/application
+  Rendered accounts/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 99)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 12.5ms | ActiveRecord: 0.3ms | Allocations: 6079)
+
+
+Started GET "/accounts" for ::1 at 2020-12-06 19:47:20 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/accounts/index.html.erb:17
+  Rendered accounts/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 1419)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 35.6ms | ActiveRecord: 0.9ms | Allocations: 6888)
+
+
+Started GET "/accounts/new" for ::1 at 2020-12-06 19:47:23 -0300
+Processing by AccountsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/new.html.erb within layouts/application
+  [1m[36mAccounttype Load (0.4ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes"[0m
+  ↳ app/views/accounts/_form.html.erb:31
+  Rendered accounts/_form.html.erb (Duration: 19.1ms | Allocations: 2996)
+  Rendered accounts/new.html.erb within layouts/application (Duration: 20.5ms | Allocations: 3096)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 40.5ms | ActiveRecord: 0.8ms | Allocations: 8519)
+
+
+Started POST "/accounts" for ::1 at 2020-12-06 19:47:31 -0300
+Processing by AccountsController#create as HTML
+  Parameters: {"authenticity_token"=>"b7ktUrSI//CU6ZDZQVTBWtRqkX7PxxZqSIueL1/RDfdXBVvNxF0Pt0K1Lw3BPRiRB5/sGv9OALqz7H3KJLQlfA==", "account"=>{"qtd"=>"70", "data_conta(1i)"=>"2020", "data_conta(2i)"=>"12", "data_conta(3i)"=>"5", "comentario"=>"", "accounttype_id"=>"3"}, "commit"=>"Create Account"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/accounts_controller.rb:32:in `block in create'
+  [1m[36mAccount Create (0.5ms)[0m  [1m[32mINSERT INTO "accounts" ("qtd", "data_conta", "comentario", "created_at", "updated_at", "user_id", "accounttype_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["qtd", 70.0], ["data_conta", "2020-12-05"], ["comentario", ""], ["created_at", "2020-12-06 22:47:31.929795"], ["updated_at", "2020-12-06 22:47:31.929795"], ["user_id", 1], ["accounttype_id", 3]]
+  ↳ app/controllers/accounts_controller.rb:32:in `block in create'
+  [1m[35m (679.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/accounts_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/accounts/6
+Completed 302 Found in 691ms (ActiveRecord: 679.8ms | Allocations: 7504)
+
+
+Started GET "/accounts/6" for ::1 at 2020-12-06 19:47:32 -0300
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:69:in `set_account'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/show.html.erb within layouts/application
+  Rendered accounts/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 96)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 7.4ms | ActiveRecord: 0.4ms | Allocations: 6071)
+
+
+Started GET "/accounts" for ::1 at 2020-12-06 19:47:35 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/accounts/index.html.erb:17
+  Rendered accounts/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1559)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 14.9ms | ActiveRecord: 0.8ms | Allocations: 7032)
+
+
+Started GET "/expenses" for ::1 at 2020-12-06 19:47:50 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+  ↳ app/views/expenses/index.html.erb:17
+  Rendered expenses/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1408)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 11.7ms | ActiveRecord: 0.8ms | Allocations: 7749)
+
+
+Started GET "/expenses/new" for ::1 at 2020-12-06 19:47:52 -0300
+Processing by ExpensesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/new.html.erb within layouts/application
+  [1m[36mExpensetype Load (0.2ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes"[0m
+  ↳ app/views/expenses/_form.html.erb:32
+  Rendered expenses/_form.html.erb (Duration: 10.9ms | Allocations: 3939)
+  Rendered expenses/new.html.erb within layouts/application (Duration: 12.0ms | Allocations: 4298)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 17.2ms | ActiveRecord: 1.7ms | Allocations: 16024)
+
+
+Started GET "/expensetypes" for ::1 at 2020-12-06 19:47:59 -0300
+Processing by ExpensetypesController#index as HTML
+  Rendering expensetypes/index.html.erb within layouts/application
+  [1m[36mExpensetype Load (0.2ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes"[0m
+  ↳ app/views/expensetypes/index.html.erb:14
+  Rendered expensetypes/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 916)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.2ms | Allocations: 5625)
+
+
+Started GET "/expensetypes/new" for ::1 at 2020-12-06 19:48:01 -0300
+Processing by ExpensetypesController#new as HTML
+  Rendering expensetypes/new.html.erb within layouts/application
+  Rendered expensetypes/_form.html.erb (Duration: 3.4ms | Allocations: 966)
+  Rendered expensetypes/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1327)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 14.5ms | ActiveRecord: 0.5ms | Allocations: 8113)
+
+
+Started POST "/expensetypes" for ::1 at 2020-12-06 19:48:10 -0300
+Processing by ExpensetypesController#create as HTML
+  Parameters: {"authenticity_token"=>"dOdW9QSI21ktTaLR5lZGSY+zXdhUejgLEL547PgLJG0Em5uVUJDfuVx6apu/iG9+93JEwo3JJLwV3oYR6sRLAg==", "expensetype"=>{"tipo_receita"=>"Salário"}, "commit"=>"Create Expensetype"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expensetypes_controller.rb:30:in `block in create'
+  [1m[36mExpensetype Create (1.0ms)[0m  [1m[32mINSERT INTO "expensetypes" ("tipo_receita", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tipo_receita", "Salário"], ["created_at", "2020-12-06 22:48:10.382437"], ["updated_at", "2020-12-06 22:48:10.382437"]]
+  ↳ app/controllers/expensetypes_controller.rb:30:in `block in create'
+  [1m[35m (605.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expensetypes_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/expensetypes/1
+Completed 302 Found in 632ms (ActiveRecord: 606.7ms | Allocations: 5858)
+
+
+Started GET "/expensetypes/1" for ::1 at 2020-12-06 19:48:11 -0300
+Processing by ExpensetypesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExpensetype Load (0.6ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/expensetypes_controller.rb:67:in `set_expensetype'
+  Rendering expensetypes/show.html.erb within layouts/application
+  Rendered expensetypes/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 246)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 15.9ms | ActiveRecord: 0.6ms | Allocations: 5069)
+
+
+Started GET "/expensetypes" for ::1 at 2020-12-06 19:48:12 -0300
+Processing by ExpensetypesController#index as HTML
+  Rendering expensetypes/index.html.erb within layouts/application
+  [1m[36mExpensetype Load (0.4ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes"[0m
+  ↳ app/views/expensetypes/index.html.erb:14
+  Rendered expensetypes/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 788)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 26.7ms | ActiveRecord: 0.4ms | Allocations: 4768)
+
+
+Started GET "/expensetypes/new" for ::1 at 2020-12-06 19:48:13 -0300
+Processing by ExpensetypesController#new as HTML
+  Rendering expensetypes/new.html.erb within layouts/application
+  Rendered expensetypes/_form.html.erb (Duration: 4.5ms | Allocations: 568)
+  Rendered expensetypes/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 668)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 36.0ms | ActiveRecord: 0.0ms | Allocations: 4651)
+
+
+Started POST "/expensetypes" for ::1 at 2020-12-06 19:48:18 -0300
+Processing by ExpensetypesController#create as HTML
+  Parameters: {"authenticity_token"=>"lV7Tywk7fANmsfEF0p9F14g29xZjegDeVKRQw0/dABDlIh6rXSN44xeGOU+LQWzg8PfuDLrJHGlRxK4+XRJvfw==", "expensetype"=>{"tipo_receita"=>"Freelancer"}, "commit"=>"Create Expensetype"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expensetypes_controller.rb:30:in `block in create'
+  [1m[36mExpensetype Create (5.2ms)[0m  [1m[32mINSERT INTO "expensetypes" ("tipo_receita", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tipo_receita", "Freelancer"], ["created_at", "2020-12-06 22:48:18.377675"], ["updated_at", "2020-12-06 22:48:18.377675"]]
+  ↳ app/controllers/expensetypes_controller.rb:30:in `block in create'
+  [1m[35m (654.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expensetypes_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/expensetypes/2
+Completed 302 Found in 686ms (ActiveRecord: 659.4ms | Allocations: 4592)
+
+
+Started GET "/expensetypes/2" for ::1 at 2020-12-06 19:48:19 -0300
+Processing by ExpensetypesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mExpensetype Load (0.2ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/expensetypes_controller.rb:67:in `set_expensetype'
+  Rendering expensetypes/show.html.erb within layouts/application
+  Rendered expensetypes/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 83)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.2ms | Allocations: 4623)
+
+
+Started GET "/expensetypes" for ::1 at 2020-12-06 19:48:20 -0300
+Processing by ExpensetypesController#index as HTML
+  Rendering expensetypes/index.html.erb within layouts/application
+  [1m[36mExpensetype Load (0.4ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes"[0m
+  ↳ app/views/expensetypes/index.html.erb:14
+  Rendered expensetypes/index.html.erb within layouts/application (Duration: 7.9ms | Allocations: 911)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 0.4ms | Allocations: 4892)
+
+
+Started GET "/expenses" for ::1 at 2020-12-06 19:48:26 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+  ↳ app/views/expenses/index.html.erb:17
+  Rendered expenses/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 664)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 15.6ms | ActiveRecord: 0.3ms | Allocations: 6088)
+
+
+Started GET "/expenses/new" for ::1 at 2020-12-06 19:48:28 -0300
+Processing by ExpensesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/new.html.erb within layouts/application
+  [1m[36mExpensetype Load (0.3ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes"[0m
+  ↳ app/views/expenses/_form.html.erb:32
+  Rendered expenses/_form.html.erb (Duration: 15.4ms | Allocations: 2918)
+  Rendered expenses/new.html.erb within layouts/application (Duration: 16.3ms | Allocations: 3018)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 29.2ms | ActiveRecord: 0.7ms | Allocations: 8448)
+
+
+Started POST "/expenses" for ::1 at 2020-12-06 19:48:48 -0300
+Processing by ExpensesController#create as HTML
+  Parameters: {"authenticity_token"=>"eIyh3z/wE6SXuECRTa5Bjium5MkWC6jNgR88w/tdD6TRno/zff1MCfc0cFEgyf/CpsW1tWqHAJmEg2/pXHDAwA==", "expense"=>{"quantidade"=>"579.80", "data(1i)"=>"2020", "data(2i)"=>"12", "data(3i)"=>"2", "comentario"=>"", "expensetype_id"=>"1"}, "commit"=>"Create Expense"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:32:in `block in create'
+  [1m[36mExpense Create (2.9ms)[0m  [1m[32mINSERT INTO "expenses" ("quantidade", "data", "comentario", "created_at", "updated_at", "user_id", "expensetype_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["quantidade", 579.8], ["data", "2020-12-02"], ["comentario", ""], ["created_at", "2020-12-06 22:48:48.624583"], ["updated_at", "2020-12-06 22:48:48.624583"], ["user_id", 1], ["expensetype_id", 1]]
+  ↳ app/controllers/expenses_controller.rb:32:in `block in create'
+  [1m[35m (565.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/expenses/1
+Completed 302 Found in 600ms (ActiveRecord: 569.5ms | Allocations: 7546)
+
+
+Started GET "/expenses/1" for ::1 at 2020-12-06 19:48:49 -0300
+Processing by ExpensesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExpense Load (0.7ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:69:in `set_expense'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/show.html.erb within layouts/application
+  Rendered expenses/show.html.erb within layouts/application (Duration: 22.6ms | Allocations: 2742)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 1.1ms | Allocations: 5525)
+
+
+  
+ActionView::Template::Error (undefined method `nome' for #<Expense:0x00007f31b4c40378>):
+    2: 
+    3: <p>
+    4:   <strong>Nome:</strong>
+    5:   <%= @expense.nome %>
+    6: </p>
+    7: 
+    8: <p>
+  
+app/views/expenses/show.html.erb:5
+Started GET "/expenses/1" for ::1 at 2020-12-06 19:49:06 -0300
+Processing by ExpensesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:69:in `set_expense'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/show.html.erb within layouts/application
+  Rendered expenses/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 299)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 11.6ms | ActiveRecord: 0.5ms | Allocations: 7403)
+
+
+Started GET "/expenses" for ::1 at 2020-12-06 19:49:09 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+  ↳ app/views/expenses/index.html.erb:17
+  Rendered expenses/index.html.erb within layouts/application (Duration: 22.4ms | Allocations: 3411)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.7ms | Allocations: 6198)
+
+
+  
+ActionView::Template::Error (undefined method `nome' for #<Expense:0x00007f318c048db8>):
+    16:   <tbody>
+    17:     <% @expenses.each do |expense| %>
+    18:       <tr>
+    19:         <td><%= expense.nome %></td>
+    20:         <td><%= expense.quantidade %></td>
+    21:         <td><%= expense.data %></td>
+    22:         <td><%= expense.comentario %></td>
+  
+app/views/expenses/index.html.erb:19
+app/views/expenses/index.html.erb:17
+Started GET "/expenses" for ::1 at 2020-12-06 19:49:56 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:16
+  Rendered expenses/index.html.erb within layouts/application (Duration: 16.2ms | Allocations: 7251)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 25.5ms | ActiveRecord: 1.9ms | Allocations: 21956)
+
+
