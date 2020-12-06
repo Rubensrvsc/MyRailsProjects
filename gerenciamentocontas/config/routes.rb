@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :expensetypes
   resources :expenses
   resources :accounts
   #get 'account/index'
