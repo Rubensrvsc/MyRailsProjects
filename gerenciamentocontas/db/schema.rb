@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_213050) do
+ActiveRecord::Schema.define(version: 2020_12_06_224254) do
 
   create_table "accounts", force: :cascade do |t|
     t.float "qtd"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2020_12_06_213050) do
   end
 
   create_table "expenses", force: :cascade do |t|
-    t.string "nome"
     t.float "quantidade"
     t.date "data"
     t.string "comentario"
@@ -39,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_12_06_213050) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id", null: false
     t.integer "expensetype_id", null: false
+    t.float "qtd"
     t.index ["expensetype_id"], name: "index_expenses_on_expensetype_id"
     t.index ["user_id"], name: "index_expenses_on_user_id"
   end

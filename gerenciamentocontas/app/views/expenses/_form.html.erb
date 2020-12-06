@@ -11,10 +11,6 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
-  </div>
 
   <div class="field">
     <%= form.label :quantidade %>
@@ -32,7 +28,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :Conta %>
+    <%= form.label :Receita %>
     <%= form.collection_select(:expensetype_id,Expensetype.all,:id,:tipo_receita,include_blank: false) %>
   </div>
 
