@@ -3018,3 +3018,253 @@ Processing by AccountsController#index as HTML
 Completed 200 OK in 57ms (Views: 37.0ms | ActiveRecord: 3.3ms | Allocations: 28260)
 
 
+Started GET "/" for ::1 at 2020-12-07 08:58:30 -0300
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AccountsController#index as HTML
+Completed 401 Unauthorized in 59ms (ActiveRecord: 0.0ms | Allocations: 1578)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-12-07 08:58:30 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 28.8ms | Allocations: 655)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 85.5ms | Allocations: 4099)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 452ms (Views: 360.2ms | ActiveRecord: 4.2ms | Allocations: 21515)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-12-07 09:00:55 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"yiXx0yVMAeVn9GfHv2LWAgaGUSo3xb4iAShq9XjhsHaKdjNQWDa0O8cT2Euv80bC7MbgmLPjooypEwyQe9fisQ==", "user"=>{"email"=>"rubensspfc@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (27.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "rubensspfc@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 657ms (ActiveRecord: 27.3ms | Allocations: 6622)
+
+
+Started GET "/" for ::1 at 2020-12-07 09:00:55 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (27.9ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/accounts/index.html.erb:18
+  [1m[36mAccounttype Load (20.9ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  Rendered accounts/index.html.erb within layouts/application (Duration: 89.7ms | Allocations: 14724)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 146ms (Views: 46.9ms | ActiveRecord: 51.8ms | Allocations: 22647)
+
+
+Started GET "/accounttypes" for ::1 at 2020-12-07 09:01:04 -0300
+Processing by AccounttypesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/index.html.erb within layouts/application
+  [1m[36mAccounttype Load (0.4ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes"[0m
+  ↳ app/views/accounttypes/index.html.erb:14
+  Rendered accounttypes/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1531)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 13.2ms | ActiveRecord: 0.6ms | Allocations: 7653)
+
+
+Started GET "/accounttypes/new" for ::1 at 2020-12-07 09:01:06 -0300
+Processing by AccounttypesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/new.html.erb within layouts/application
+  Rendered accounttypes/_form.html.erb (Duration: 2.7ms | Allocations: 957)
+  Rendered accounttypes/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1324)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 0.1ms | Allocations: 6878)
+
+
+Started POST "/accounttypes" for ::1 at 2020-12-07 09:01:11 -0300
+Processing by AccounttypesController#create as HTML
+  Parameters: {"authenticity_token"=>"+gVKGP6Mzh34spnsItjx0uyfcq7N1dzEAnc1A/2fxMANHj1FrZiJhnOLlZJetE3tdox/8SjXxZxVrKhwb4pkdg==", "accounttype"=>{"tipo_conta"=>"Roupa"}, "commit"=>"Create Accounttype"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/accounttypes_controller.rb:31:in `block in create'
+  [1m[36mAccounttype Create (284.5ms)[0m  [1m[32mINSERT INTO "accounttypes" ("tipo_conta", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["tipo_conta", "Roupa"], ["created_at", "2020-12-07 12:01:11.124038"], ["updated_at", "2020-12-07 12:01:11.124038"]]
+  ↳ app/controllers/accounttypes_controller.rb:31:in `block in create'
+  [1m[35m (342.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/accounttypes_controller.rb:31:in `block in create'
+Redirected to http://localhost:3000/accounttypes/5
+Completed 302 Found in 653ms (ActiveRecord: 627.6ms | Allocations: 7306)
+
+
+Started GET "/accounttypes/5" for ::1 at 2020-12-07 09:01:11 -0300
+Processing by AccounttypesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAccounttype Load (0.3ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/accounttypes_controller.rb:68:in `set_accounttype'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/show.html.erb within layouts/application
+  Rendered accounttypes/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 248)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 8.1ms | ActiveRecord: 0.5ms | Allocations: 6381)
+
+
+Started GET "/accounttypes" for ::1 at 2020-12-07 09:01:13 -0300
+Processing by AccounttypesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounttypes/index.html.erb within layouts/application
+  [1m[36mAccounttype Load (0.4ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes"[0m
+  ↳ app/views/accounttypes/index.html.erb:14
+  Rendered accounttypes/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 1315)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 21.3ms | ActiveRecord: 0.8ms | Allocations: 6728)
+
+
+Started GET "/accounts" for ::1 at 2020-12-07 09:01:15 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/accounts/index.html.erb:18
+  [1m[36mAccounttype Load (0.1ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  Rendered accounts/index.html.erb within layouts/application (Duration: 16.4ms | Allocations: 4883)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 23.4ms | ActiveRecord: 0.7ms | Allocations: 10356)
+
+
+Started GET "/accounts/new" for ::1 at 2020-12-07 09:01:16 -0300
+Processing by AccountsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/new.html.erb within layouts/application
+  [1m[36mAccounttype Load (0.1ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes"[0m
+  ↳ app/views/accounts/_form.html.erb:31
+  Rendered accounts/_form.html.erb (Duration: 19.9ms | Allocations: 4084)
+  Rendered accounts/new.html.erb within layouts/application (Duration: 21.8ms | Allocations: 4447)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 27.6ms | ActiveRecord: 0.4ms | Allocations: 10001)
+
+
+Started POST "/accounts" for ::1 at 2020-12-07 09:01:35 -0300
+Processing by AccountsController#create as HTML
+  Parameters: {"authenticity_token"=>"L9l0CZr8n6Ohd1EooDLTtsbBNsXYSYpN1nCtAzFqADJVYUZ5ufbrDZL7FA/ODmvIWIT9QQBSOovlooWmqlwRaA==", "account"=>{"qtd"=>"31", "data_conta(1i)"=>"2020", "data_conta(2i)"=>"12", "data_conta(3i)"=>"5", "comentario"=>"Toalha", "accounttype_id"=>"5"}, "commit"=>"Create Account"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/accounts_controller.rb:32:in `block in create'
+  [1m[36mAccount Create (208.8ms)[0m  [1m[32mINSERT INTO "accounts" ("qtd", "data_conta", "comentario", "created_at", "updated_at", "user_id", "accounttype_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["qtd", 31.0], ["data_conta", "2020-12-05"], ["comentario", "Toalha"], ["created_at", "2020-12-07 12:01:35.517432"], ["updated_at", "2020-12-07 12:01:35.517432"], ["user_id", 1], ["accounttype_id", 5]]
+  ↳ app/controllers/accounts_controller.rb:32:in `block in create'
+  [1m[35m (600.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/accounts_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/accounts/7
+Completed 302 Found in 839ms (ActiveRecord: 809.4ms | Allocations: 5572)
+
+
+Started GET "/accounts/7" for ::1 at 2020-12-07 09:01:36 -0300
+Processing by AccountsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/accounts_controller.rb:69:in `set_account'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/show.html.erb within layouts/application
+  Rendered accounts/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 302)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 11.8ms | ActiveRecord: 0.6ms | Allocations: 6544)
+
+
+Started GET "/accounts" for ::1 at 2020-12-07 09:01:38 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.6ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/accounts/index.html.erb:18
+  [1m[36mAccounttype Load (0.4ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mAccounttype Load (0.4ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.1ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.1ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  Rendered accounts/index.html.erb within layouts/application (Duration: 38.8ms | Allocations: 5610)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 45.1ms | ActiveRecord: 2.3ms | Allocations: 11088)
+
+
+Started GET "/rails/info/routes" for ::1 at 2020-12-07 09:20:36 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendering /var/lib/gems/2.5.0/gems/railties-6.0.3.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /var/lib/gems/2.5.0/gems/actionpack-6.0.3.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [68 times] (Duration: 59.9ms | Allocations: 9881)
+  Rendered /var/lib/gems/2.5.0/gems/actionpack-6.0.3.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 19.9ms | Allocations: 919)
+  Rendered /var/lib/gems/2.5.0/gems/railties-6.0.3.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 100.8ms | Allocations: 16019)
+Completed 200 OK in 301ms (Views: 103.8ms | ActiveRecord: 0.0ms | Allocations: 17466)
+
+
+Started GET "/accounts" for ::1 at 2020-12-07 09:29:26 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (1.3ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/accounts/index.html.erb:18
+  [1m[36mAccounttype Load (0.5ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mAccounttype Load (0.4ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.3ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.1ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.1ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mCACHE Accounttype Load (0.1ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  [1m[36mAccounttype Load (0.3ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:24
+  Rendered accounts/index.html.erb within layouts/application (Duration: 49.7ms | Allocations: 6037)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 85ms (Views: 69.9ms | ActiveRecord: 3.6ms | Allocations: 14429)
+
+
+Started GET "/expenses" for ::1 at 2020-12-07 09:29:28 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:17
+  [1m[36mExpensetype Load (0.2ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:22
+  Rendered expenses/index.html.erb within layouts/application (Duration: 20.6ms | Allocations: 10898)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 68ms (Views: 29.4ms | ActiveRecord: 2.1ms | Allocations: 18456)
+
+
+Started GET "/expensetypes" for ::1 at 2020-12-07 09:29:30 -0300
+Processing by ExpensetypesController#index as HTML
+  Rendering expensetypes/index.html.erb within layouts/application
+  [1m[36mExpensetype Load (0.2ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes"[0m
+  ↳ app/views/expensetypes/index.html.erb:14
+  Rendered expensetypes/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1237)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.2ms | Allocations: 5955)
+
+

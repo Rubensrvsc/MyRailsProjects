@@ -14,9 +14,9 @@
     <% @accounttypes.each do |accounttype| %>
       <tr>
         <td><%= accounttype.tipo_conta %></td>
-        <td><%= link_to 'Show', accounttype %></td>
-        <td><%= link_to 'Edit', edit_accounttype_path(accounttype) %></td>
-        <td><%= link_to 'Destroy', accounttype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', accounttype %></td>
+        <td><%= link_to 'Editar', edit_accounttype_path(accounttype) %></td>
+        <td><%= link_to 'Deletar', accounttype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

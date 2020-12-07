@@ -22,9 +22,9 @@
         <td><%= account.comentario %></td>
         <td><%= current_user.email %></td>
         <td><%= Accounttype.find(account.accounttype_id) %></td>
-        <td><%= link_to 'Show', account %></td>
-        <td><%= link_to 'Edit', edit_account_path(account) %></td>
-        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', account %></td>
+        <td><%= link_to 'Editar', edit_account_path(account) %></td>
+        <td><%= link_to 'Deletar', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -35,3 +35,5 @@
 <%= link_to 'Nova Conta', new_account_path %>
 <br>
 <%= link_to 'Tipos de Conta', accounttypes_path %>
+<br>
+<%= link_to 'Receitas', expenses_path %>

@@ -20,9 +20,9 @@
         <td><%= expense.data %></td>
         <td><%= expense.comentario %></td>
         <td><%= Expensetype.find(expense.expensetype_id) %></td>
-        <td><%= link_to 'Show', expense %></td>
-        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-        <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', expense %></td>
+        <td><%= link_to 'Editar', edit_expense_path(expense) %></td>
+        <td><%= link_to 'Deletar', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,6 @@
 
 <br>
 
-<%= link_to 'New Expense', new_expense_path %>
+<%= link_to 'Nova Receita', new_expense_path %>
+<br>
+<%= link_to 'Tipos de Receita', expensetypes_path %>
