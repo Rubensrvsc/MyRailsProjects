@@ -2,6 +2,22 @@
 
 <h1>Accounts</h1>
 
+<div>
+<%= form_tag(accounts_path, :method => :get) do %>
+
+   <%= date_field_tag 'data_inicio', nil, placeholder: "Data inicial" %>
+   <%= submit_tag  "Data inicial"%>
+<% end %>
+
+<%= form_tag(accounts_path, :method => :get) do %>
+
+   <%= date_field_tag 'data_final', nil, placeholder: "Data inicial" %>
+   <%= submit_tag  "Data final"%>
+<% end %>
+</div>
+
+
+
 <table>
   <thead>
     <tr>
