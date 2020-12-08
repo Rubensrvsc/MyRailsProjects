@@ -5,7 +5,13 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.where(user_id: current_user.id)
+    @data_inicio = params[:data_inicio]
+    @data_fim = params[:data_final]
+    if @data_inicio and @data_fim
+      @accounts = Account.where(user_id: current_user.id,:data_conta => @data_inicio..@data_fim)
+    else
+      @accounts = Account.where(user_id: current_user.id)
+    end
   end
 
   # GET /accounts/1
