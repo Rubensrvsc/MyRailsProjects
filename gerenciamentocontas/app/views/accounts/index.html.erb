@@ -44,7 +44,12 @@
 </table>
 <br>
 <div>
+<% if @total_mes == 0%>
+
+<% elsif @total_mes > 0%>
 <p><%= @total_mes %> reais</p>
+
+<% end %>
 </div>
 
 <br>
