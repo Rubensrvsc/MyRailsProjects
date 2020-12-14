@@ -10,9 +10,11 @@ class ExpensesController < ApplicationController
     @total_receitas_mes = 0
     if @data_inicio == "" and @data_fim == ""
       @expenses = Expense.where(user_id: current_user.id)
-    elsif
+    elsif @data_inicio and @data_fim
       @expenses = Expense.where(user_id: current_user.id,:data => @data_inicio..@data_fim)
       @total_receitas_mes = Expense.where(user_id: current_user.id,:data => @data_inicio..@data_fim).pluck('SUM(quantidade)')[0]
+    else
+      @expenses = Expense.where(user_id: current_user.id)
     end
   end
 

@@ -3,7 +3,7 @@
 <h1>Receitas</h1>
 
 <div>
-<%= form_tag(accounts_path, :method => :get) do %>
+<%= form_tag(expenses_path, :method => :get) do %>
 
    <%= date_field_tag 'data_inicio', nil, placeholder: "Data inicial" %>
    <%= date_field_tag 'data_final', nil, placeholder: "Data inicial" %>
@@ -41,9 +41,9 @@
 </table>
 <br>
 <div>
-<% if @total_receitas_mes == 0%>
+<% if @total_receitas_mes == 0 %>
 
-<% elsif @total_receitas_mes > 0%>
+<% elsif @total_receitas_mes > 0 %>
 <p><%= @total_receitas_mes %> reais</p>
 
 <% end %>

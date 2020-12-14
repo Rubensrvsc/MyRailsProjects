@@ -5908,3 +5908,359 @@ Processing by AccountsController#index as HTML
 Completed 200 OK in 75ms (Views: 53.6ms | ActiveRecord: 4.1ms | Allocations: 13443)
 
 
+Started GET "/expenses" for ::1 at 2020-12-14 09:27:21 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT SUM(quantidade) FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/controllers/expenses_controller.rb:15:in `index'
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.9ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:29
+  [1m[36mExpensetype Load (0.4ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  Rendered expenses/index.html.erb within layouts/application (Duration: 16.9ms | Allocations: 2124)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 65ms (Views: 44.8ms | ActiveRecord: 3.0ms | Allocations: 8943)
+
+
+Started GET "/expenses/new" for ::1 at 2020-12-14 09:27:23 -0300
+Processing by ExpensesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/new.html.erb within layouts/application
+  [1m[36mExpensetype Load (0.2ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes"[0m
+  ↳ app/views/expenses/_form.html.erb:32
+  Rendered expenses/_form.html.erb (Duration: 8.5ms | Allocations: 3331)
+  Rendered expenses/new.html.erb within layouts/application (Duration: 10.4ms | Allocations: 3696)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 20.2ms | ActiveRecord: 0.4ms | Allocations: 9254)
+
+
+Started POST "/expenses" for ::1 at 2020-12-14 09:27:31 -0300
+Processing by ExpensesController#create as HTML
+  Parameters: {"authenticity_token"=>"c4DdbqhkH75/LwfAyT3RM/h0+8LPLNls+YcX1Q8Ljtitxt0lUJtrvg1c2EAa1dMoEtutJyn5xV/b7ODRadCTGg==", "expense"=>{"quantidade"=>"3", "data(1i)"=>"2020", "data(2i)"=>"12", "data(3i)"=>"14", "comentario"=>"", "expensetype_id"=>"1"}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:40:in `block in create'
+  [1m[36mExpense Create (1.0ms)[0m  [1m[32mINSERT INTO "expenses" ("quantidade", "data", "comentario", "created_at", "updated_at", "user_id", "expensetype_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["quantidade", 3.0], ["data", "2020-12-14"], ["comentario", ""], ["created_at", "2020-12-14 12:27:31.556123"], ["updated_at", "2020-12-14 12:27:31.556123"], ["user_id", 1], ["expensetype_id", 1]]
+  ↳ app/controllers/expenses_controller.rb:40:in `block in create'
+  [1m[35m (876.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:40:in `block in create'
+Redirected to http://localhost:3000/expenses/2
+Completed 302 Found in 905ms (ActiveRecord: 877.6ms | Allocations: 7435)
+
+
+Started GET "/expenses/2" for ::1 at 2020-12-14 09:27:32 -0300
+Processing by ExpensesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mExpense Load (0.7ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:77:in `set_expense'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/show.html.erb within layouts/application
+  Rendered expenses/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 304)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 16.9ms | ActiveRecord: 1.3ms | Allocations: 6560)
+
+
+Started GET "/expenses" for ::1 at 2020-12-14 09:27:34 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM(quantidade) FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/controllers/expenses_controller.rb:15:in `index'
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:29
+  [1m[36mExpensetype Load (0.2ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  [1m[36mCACHE Expensetype Load (0.0ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  Rendered expenses/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2297)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 17.9ms | ActiveRecord: 1.5ms | Allocations: 8438)
+
+
+Started GET "/expenses" for ::1 at 2020-12-14 09:29:23 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM(quantidade) FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/controllers/expenses_controller.rb:15:in `index'
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:29
+  [1m[36mExpensetype Load (0.1ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  [1m[36mCACHE Expensetype Load (0.0ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  Rendered expenses/index.html.erb within layouts/application (Duration: 19.9ms | Allocations: 11734)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 26.7ms | ActiveRecord: 2.5ms | Allocations: 27281)
+
+
+Started GET "/expenses" for ::1 at 2020-12-14 09:29:24 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT SUM(quantidade) FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/controllers/expenses_controller.rb:15:in `index'
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:29
+  [1m[36mExpensetype Load (0.1ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  [1m[36mCACHE Expensetype Load (0.0ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  Rendered expenses/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2303)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 16.2ms | ActiveRecord: 0.7ms | Allocations: 8447)
+
+
+Started DELETE "/expenses/2" for ::1 at 2020-12-14 09:29:29 -0300
+Processing by ExpensesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"OMC3pvurUps+W8OSb8y2xJfeAyyw/DlEBeUIsuVAxpruldpHL86WgXRHr+fvNz6eaZ+c597/oNHTiMF1sqm+GQ==", "id"=>"2"}
+  [1m[36mExpense Load (0.6ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:77:in `set_expense'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/expenses_controller.rb:67:in `destroy'
+  [1m[36mExpense Destroy (1.2ms)[0m  [1m[31mDELETE FROM "expenses" WHERE "expenses"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/expenses_controller.rb:67:in `destroy'
+  [1m[35m (519.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/expenses_controller.rb:67:in `destroy'
+Redirected to http://localhost:3000/expenses
+Completed 302 Found in 562ms (ActiveRecord: 521.5ms | Allocations: 7148)
+
+
+Started GET "/expenses" for ::1 at 2020-12-14 09:29:30 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT SUM(quantidade) FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/controllers/expenses_controller.rb:15:in `index'
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.7ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:29
+  [1m[36mExpensetype Load (0.4ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  Rendered expenses/index.html.erb within layouts/application (Duration: 14.9ms | Allocations: 1621)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 36.0ms | ActiveRecord: 2.5ms | Allocations: 7782)
+
+
+Started GET "/expenses" for ::1 at 2020-12-14 09:30:34 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM(quantidade) FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/controllers/expenses_controller.rb:15:in `index'
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:29
+  [1m[36mExpensetype Load (0.1ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  Rendered expenses/index.html.erb within layouts/application (Duration: 21.9ms | Allocations: 11059)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 27.7ms | ActiveRecord: 3.5ms | Allocations: 26603)
+
+
+Started GET "/expenses" for ::1 at 2020-12-14 09:30:36 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT SUM(quantidade) FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/controllers/expenses_controller.rb:15:in `index'
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:29
+  [1m[36mExpensetype Load (0.2ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  Rendered expenses/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1630)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 11.4ms | ActiveRecord: 0.7ms | Allocations: 7774)
+
+
+Started GET "/expenses" for ::1 at 2020-12-14 09:31:22 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM(quantidade) FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/controllers/expenses_controller.rb:15:in `index'
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:29
+  [1m[36mExpensetype Load (0.1ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  Rendered expenses/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2125)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 17.2ms | ActiveRecord: 1.0ms | Allocations: 9314)
+
+
+Started GET "/expenses?data_inicio=2020-12-03&data_final=2020-12-04&commit=Pesquisa" for ::1 at 2020-12-14 09:31:36 -0300
+Processing by ExpensesController#index as HTML
+  Parameters: {"data_inicio"=>"2020-12-03", "data_final"=>"2020-12-04", "commit"=>"Pesquisa"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM(quantidade) FROM "expenses" WHERE "expenses"."user_id" = ? AND "expenses"."data" BETWEEN ? AND ?[0m  [["user_id", 1], ["data", "2020-12-03"], ["data", "2020-12-04"]]
+  ↳ app/controllers/expenses_controller.rb:15:in `index'
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.6ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ? AND "expenses"."data" BETWEEN ? AND ?[0m  [["user_id", 1], ["data", "2020-12-03"], ["data", "2020-12-04"]]
+  ↳ app/views/expenses/index.html.erb:29
+  Rendered expenses/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2060)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.6ms | Allocations: 4780)
+
+
+  
+ActionView::Template::Error (undefined method `>' for nil:NilClass):
+    43: <div>
+    44: <% if @total_receitas_mes == 0 %>
+    45: 
+    46: <% elsif @total_receitas_mes > 0 %>
+    47: <p><%= @total_receitas_mes %> reais</p>
+    48: 
+    49: <% end %>
+  
+app/views/expenses/index.html.erb:46
+Started GET "/expenses/2" for ::1 at 2020-12-14 09:32:05 -0300
+Processing by ExpensesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mExpense Load (0.3ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/expenses_controller.rb:77:in `set_expense'
+Completed 404 Not Found in 7ms (ActiveRecord: 0.3ms | Allocations: 1348)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Expense with 'id'=2):
+  
+app/controllers/expenses_controller.rb:77:in `set_expense'
+Started GET "/expenses" for ::1 at 2020-12-14 09:32:06 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM(quantidade) FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/controllers/expenses_controller.rb:15:in `index'
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:29
+  [1m[36mExpensetype Load (0.2ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  Rendered expenses/index.html.erb within layouts/application (Duration: 10.8ms | Allocations: 1627)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 18.5ms | ActiveRecord: 1.2ms | Allocations: 7820)
+
+
+Started GET "/accounts" for ::1 at 2020-12-14 09:32:08 -0300
+Processing by AccountsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.6ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/accounts/index.html.erb:31
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:37
+  [1m[36mAccounttype Load (0.1ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:37
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:37
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:37
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:37
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:37
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:37
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:37
+  [1m[36mCACHE Accounttype Load (0.0ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:37
+  [1m[36mAccounttype Load (0.2ms)[0m  [1m[34mSELECT "accounttypes".* FROM "accounttypes" WHERE "accounttypes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/accounts/index.html.erb:37
+  Rendered accounts/index.html.erb within layouts/application (Duration: 56.1ms | Allocations: 17674)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 85ms (Views: 63.3ms | ActiveRecord: 5.0ms | Allocations: 24948)
+
+
+Started GET "/accounts?data_inicio=2020-12-13&data_final=2020-12-14&commit=Pesquisa" for ::1 at 2020-12-14 09:32:17 -0300
+Processing by AccountsController#index as HTML
+  Parameters: {"data_inicio"=>"2020-12-13", "data_final"=>"2020-12-14", "commit"=>"Pesquisa"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT SUM(qtd) FROM "accounts" WHERE "accounts"."user_id" = ? AND "accounts"."data_conta" BETWEEN ? AND ?[0m  [["user_id", 1], ["data_conta", "2020-12-13"], ["data_conta", "2020-12-14"]]
+  ↳ app/controllers/accounts_controller.rb:15:in `index'
+  Rendering accounts/index.html.erb within layouts/application
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT "accounts".* FROM "accounts" WHERE "accounts"."user_id" = ? AND "accounts"."data_conta" BETWEEN ? AND ?[0m  [["user_id", 1], ["data_conta", "2020-12-13"], ["data_conta", "2020-12-14"]]
+  ↳ app/views/accounts/index.html.erb:31
+  Rendered accounts/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2062)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.4ms | Allocations: 4779)
+
+
+  
+ActionView::Template::Error (undefined method `>' for nil:NilClass):
+    46: <div>
+    47: <% if @total_contas_mes == 0%>
+    48: 
+    49: <% elsif @total_contas_mes > 0%>
+    50: <p><%= @total_contas_mes %> reais</p>
+    51: 
+    52: <% end %>
+  
+app/views/accounts/index.html.erb:49
+Started GET "/expenses" for ::1 at 2020-12-14 09:32:37 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT SUM(quantidade) FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/controllers/expenses_controller.rb:15:in `index'
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.6ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ? AND 1=1[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:29
+  [1m[36mExpensetype Load (0.4ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  Rendered expenses/index.html.erb within layouts/application (Duration: 13.3ms | Allocations: 1630)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 32.4ms | ActiveRecord: 2.1ms | Allocations: 7783)
+
+
+Started GET "/expenses" for ::1 at 2020-12-14 09:34:44 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  Rendered expenses/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1349)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.8ms | Allocations: 10715)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    26:   </thead>
+    27: 
+    28:   <tbody>
+    29:     <% @expenses.each do |expense| %>
+    30:       <tr>
+    31:         <td><%= expense.quantidade %></td>
+    32:         <td><%= expense.data %></td>
+  
+app/views/expenses/index.html.erb:29
+Started GET "/expenses" for ::1 at 2020-12-14 09:34:47 -0300
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  Rendered expenses/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1392)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms | Allocations: 3338)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    26:   </thead>
+    27: 
+    28:   <tbody>
+    29:     <% @expenses.each do |expense| %>
+    30:       <tr>
+    31:         <td><%= expense.quantidade %></td>
+    32:         <td><%= expense.data %></td>
+  
+app/views/expenses/index.html.erb:29
+Started GET "/expenses" for ::1 at 2020-12-14 09:35:38 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ExpensesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering expenses/index.html.erb within layouts/application
+  [1m[36mExpense Load (0.2ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses" WHERE "expenses"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/expenses/index.html.erb:29
+  [1m[36mExpensetype Load (0.1ms)[0m  [1m[34mSELECT "expensetypes".* FROM "expensetypes" WHERE "expensetypes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/expenses/index.html.erb:34
+  Rendered expenses/index.html.erb within layouts/application (Duration: 21.4ms | Allocations: 10557)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 27.0ms | ActiveRecord: 2.3ms | Allocations: 24335)
+
+
