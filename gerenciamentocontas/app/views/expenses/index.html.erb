@@ -2,6 +2,18 @@
 
 <h1>Receitas</h1>
 
+<div>
+<%= form_tag(accounts_path, :method => :get) do %>
+
+   <%= date_field_tag 'data_inicio', nil, placeholder: "Data inicial" %>
+   <%= date_field_tag 'data_final', nil, placeholder: "Data inicial" %>
+   <%= submit_tag  "Pesquisa"%>
+<% end %>
+
+
+</div>
+
+
 <table>
   <thead>
     <tr>
@@ -27,9 +39,19 @@
     <% end %>
   </tbody>
 </table>
+<br>
+<div>
+<% if @total_receitas_mes == 0%>
 
+<% elsif @total_receitas_mes > 0%>
+<p><%= @total_receitas_mes %> reais</p>
+
+<% end %>
+</div>
 <br>
 
 <%= link_to 'Nova Receita', new_expense_path %>
 <br>
 <%= link_to 'Tipos de Receita', expensetypes_path %>
+<br>
+<%= link_to 'Contas', accounts_path %>

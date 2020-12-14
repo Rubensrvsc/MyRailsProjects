@@ -5,7 +5,15 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.where(user_id: current_user.id)
+    @data_inicio = params[:data_inicio]
+    @data_fim = params[:data_final]
+    @total_receitas_mes = 0
+    if @data_inicio == "" and @data_fim == ""
+      @expenses = Expense.where(user_id: current_user.id)
+    elsif
+      @expenses = Expense.where(user_id: current_user.id,:data => @data_inicio..@data_fim)
+      @total_receitas_mes = Expense.where(user_id: current_user.id,:data => @data_inicio..@data_fim).pluck('SUM(quantidade)')[0]
+    end
   end
 
   # GET /expenses/1
