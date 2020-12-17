@@ -8,11 +8,16 @@ class AccountsController < ApplicationController
     @data_inicio = params[:data_inicio]
     @data_fim = params[:data_final]
     @total_contas_mes = 0
+    @saldo_datas = 0
     if @data_inicio == "" and @data_fim == ""
       @accounts = Account.where(user_id: current_user.id)
     elsif @data_inicio and @data_fim
       @accounts = Account.where(user_id: current_user.id,:data_conta => @data_inicio..@data_fim)
       @total_contas_mes = Account.where(user_id: current_user.id,:data_conta => @data_inicio..@data_fim).pluck('SUM(qtd)')[0]
+      @total_receitas_data = Expense.where(user_id: current_user.id,:data => @data_inicio..@data_fim).pluck('SUM(quantidade)')[0]
+      if @total_contas_mes != 0 and @total_receitas_data.present?
+        @saldo_datas = @total_receitas_data - @total_contas_mes
+      end
     else
       @accounts = Account.where(user_id: current_user.id)
     end

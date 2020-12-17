@@ -47,10 +47,21 @@
 <% if @total_contas_mes == 0%>
 
 <% elsif @total_contas_mes > 0%>
-<p><%= @total_contas_mes %> reais</p>
+<p>Total gasto: <%= @total_contas_mes %> reais</p>
 
 <% end %>
 </div>
+
+<br>
+
+<% if @saldo_datas == 0%>
+
+<% elsif @saldo_datas < 0 %>
+<p> O saldo é <%= @saldo_datas.round(2) %> negativo </p>
+
+<% elsif @saldo_datas >= 0 %>
+<p> O saldo é <%= @saldo_datas.round(2) %> positivo </p>
+<% end %>
 
 <br>
 
